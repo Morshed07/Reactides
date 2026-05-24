@@ -366,6 +366,9 @@ class ShippingAddressSerializer(serializers.ModelSerializer):
         model = ShippingAddress
         fields = (
             "id",
+            "contact_person",
+            "email",
+            "mobile_number",
             "address",
             "city",
             "state",
