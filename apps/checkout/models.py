@@ -28,7 +28,7 @@ class Order(models.Model):
     order_id = models.CharField(max_length=20, unique=True, editable=False)
 
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='orders')
-    facility_name = models.CharField(max_length=250)
+    facility_name = models.CharField(max_length=250, null=True, blank=True)
     contact_person = models.CharField(max_length=250)
     email = models.EmailField(max_length=150)
     mobile_number = models.CharField(max_length=14)

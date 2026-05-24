@@ -101,7 +101,7 @@ class EmailOTP(models.Model):
 
 class ShippingAddress(BaseModel):
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='shipping_addresses')
-    facility_name = models.CharField(max_length=255)
+    facility_name = models.CharField(max_length=255, null=True, blank=True)
     address = models.TextField()
     city = models.CharField(max_length=100)
     state = models.CharField(max_length=100)

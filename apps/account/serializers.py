@@ -126,15 +126,15 @@ class RegisterSerializer(serializers.ModelSerializer):
             first_name=validated_data.get('first_name'),
             last_name=validated_data.get('last_name'),
             representative_code=validated_data.get('representative_code'),
-            is_verified=False,
-            is_active=False
+            is_verified=True,
+            is_active=True
         )
-        try:
-            send_registration_otp_email(user)
-        except ValidationError as e:
-            # If OTP sending fails, we still want to return the user
-            # The frontend can handle retry logic
-            pass
+        # try:
+        #     send_registration_otp_email(user)
+        # except ValidationError as e:
+        #     # If OTP sending fails, we still want to return the user
+        #     # The frontend can handle retry logic
+        #     pass
         return user
 
 
@@ -366,7 +366,6 @@ class ShippingAddressSerializer(serializers.ModelSerializer):
         model = ShippingAddress
         fields = (
             "id",
-            "facility_name",
             "address",
             "city",
             "state",
