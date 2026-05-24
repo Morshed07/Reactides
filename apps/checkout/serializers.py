@@ -5,6 +5,7 @@ from decimal import Decimal
 from .models import Order, OrderItem, OrderStatusHistory
 from apps.cart.models import Cart, Coupon
 from apps.representative.models import Representative
+from apps.account.models import ShippingAddress
 
 SHIPPING_FEE = Decimal("25.00")
 
@@ -184,6 +185,17 @@ class CheckoutSerializer(serializers.ModelSerializer):
             representative_name=representative_name,
             representative_code=representative_code,
             **validated_data
+        )
+
+        # --------- CREATE SHIPPING ADDRESS ---------
+        ShippingAddress.objects.create(
+            user=user,
+            contact_person=validated_data.get('contact_person'),
+            email=validated_data.get('email'),
+            address=validated_data.get('address'),
+            city=validated_data.get('city'),
+            state=validated_data.get('state'),
+            zip_code=validated_data.get('zip_code'),
         )
 
         # --------- COPY CART ITEMS ---------

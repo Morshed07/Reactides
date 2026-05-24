@@ -15,7 +15,7 @@ class UserAdmin(ModelAdmin):
 
 @admin.register(ShippingAddress)
 class ShippingAddressAdmin(ModelAdmin):
-    list_display = ('user', 'facility_name', 'city', 'state', 'zip_code', 'created_at')
-    search_fields = ('user__email', 'facility_name', 'city', 'state', 'zip_code')
+    list_display = ('user', 'email', 'city', 'state', 'zip_code', 'created_at')
+    search_fields = ('user__email', 'email', 'city', 'state', 'zip_code')
     list_filter = ('created_at',)
     ordering = ('-created_at',)

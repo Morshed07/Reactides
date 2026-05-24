@@ -98,10 +98,11 @@ class EmailOTP(models.Model):
         return f"OTP for {self.user.email} at {self.created_at}"
     
 
-
 class ShippingAddress(BaseModel):
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='shipping_addresses')
     facility_name = models.CharField(max_length=255, null=True, blank=True)
+    email = models.EmailField(max_length=150)
+    contact_person = models.CharField(max_length=250, null=True, blank=True)
     address = models.TextField()
     city = models.CharField(max_length=100)
     state = models.CharField(max_length=100)
