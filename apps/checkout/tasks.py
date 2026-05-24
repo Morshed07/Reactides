@@ -38,7 +38,6 @@ def send_order_confirmation_email(self, order_id):
     context = {
         'order_id': order.order_id,
         'contact_person': order.contact_person,
-        'facility_name': order.facility_name,
         'email': order.email,
         'payment_method': order.get_payment_method_display(),
         'status': order.status,

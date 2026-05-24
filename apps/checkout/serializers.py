@@ -42,7 +42,6 @@ class OrderSerializer(serializers.ModelSerializer):
         model = Order
         fields = [
             "order_id",
-            "facility_name",
             "contact_person",
             "email",
             "mobile_number",
@@ -88,7 +87,6 @@ class CheckoutSerializer(serializers.ModelSerializer):
     class Meta:
         model = Order
         fields = [
-            "facility_name",
             "contact_person",
             "email",
             "mobile_number",
@@ -221,4 +219,4 @@ class CheckoutSerializer(serializers.ModelSerializer):
         cart.liability_waiver_accepted = False
         cart.save()
 
-        return order
+        return order

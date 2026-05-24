@@ -28,7 +28,6 @@ class Order(models.Model):
     order_id = models.CharField(max_length=20, unique=True, editable=False)
 
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='orders')
-    facility_name = models.CharField(max_length=250, null=True, blank=True)
     contact_person = models.CharField(max_length=250)
     email = models.EmailField(max_length=150)
     mobile_number = models.CharField(max_length=14)
@@ -94,7 +93,7 @@ class Order(models.Model):
         super(Order, self).save(*args, **kwargs)
 
     def __str__(self):
-        return f"{self.order_id} - {self.facility_name}"
+        return f"{self.order_id} - {self.contact_person}"
 
 
 class OrderItem(BaseModel):
