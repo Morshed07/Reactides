@@ -103,6 +103,7 @@ class ShippingAddress(BaseModel):
     facility_name = models.CharField(max_length=255, null=True, blank=True)
     email = models.EmailField(max_length=150)
     contact_person = models.CharField(max_length=250, null=True, blank=True)
+    mobile_number = models.CharField(max_length=14, null=True, blank=True)
     address = models.TextField()
     city = models.CharField(max_length=100)
     state = models.CharField(max_length=100)

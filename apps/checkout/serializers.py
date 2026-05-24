@@ -192,6 +192,7 @@ class CheckoutSerializer(serializers.ModelSerializer):
             user=user,
             contact_person=validated_data.get('contact_person'),
             email=validated_data.get('email'),
+            mobile_number=validated_data.get('mobile_number'),
             address=validated_data.get('address'),
             city=validated_data.get('city'),
             state=validated_data.get('state'),
